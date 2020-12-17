@@ -6,8 +6,8 @@ function MyApp({ Component, pageProps }) {
 }
 
 MyApp.propTypes = {
-  Component: PropTypes.element,
-  pageProps: PropTypes.object,
+  Component: PropTypes.func.isRequired,
+  pageProps: PropTypes.object.isRequired,
 }
 
 export default MyApp
