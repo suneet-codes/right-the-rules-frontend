@@ -1,0 +1,2 @@
+- create new branch `feature/integrate-cms`
+- add abilty to render data from cms
