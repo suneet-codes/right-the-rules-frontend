@@ -11,7 +11,7 @@ const Footer = ({ colorMode }) => {
 }
 
 Footer.propTypes = {
-  colorMode: PropTypes.object.isRequired,
+  colorMode: PropTypes.string.isRequired,
 }
 
 export default Footer
