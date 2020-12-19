@@ -1,17 +1,28 @@
-import Head from "next/head"
+import { Articles, Layout, Seo } from "../components"
+import { fetchAPI } from "../lib/api"
 
-const Home = () => {
+const Home = ({ articles, categories, homepage }) => {
   return (
-    <div>
-      <Head>
-        <title>Right the Rules</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div>
-        <h1>Hello World</h1>
+    <Layout categories={categories}>
+      <Seo seo={homepage.seo} />
+      <div className="uk-section">
+        <div className="uk-container uk-container-large">
+          <h1>{homepage.hero.title}</h1>
+          <Articles articles={articles} />
+        </div>
       </div>
-    </div>
+    </Layout>
   )
 }
 
+export const getStaticProps = async () => {
+  /** Run API calls in parallel */
+  const [articles, categories, homepage] = await Promise.all([
+    fetchAPI("/articles?status=published"),
+    fetchAPI("/categories"),
+    fetchAPI("/homepage"),
+  ])
+
+  return { props: { articles, categories, homepage }, revalidate: 1 }
+}
 export default Home
