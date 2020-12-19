@@ -5,10 +5,10 @@ const Home = ({ articles, categories, homepage }) => {
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.seo} />
-      <div className="uk-section">
+      <div style={{ gridColumn: "2 / span 6" }}>
         <div className="uk-container uk-container-large">
           <h1>{homepage.hero.title}</h1>
-          <Articles articles={articles} />
+          {/* <Articles articles={articles} /> */}
         </div>
       </div>
     </Layout>
