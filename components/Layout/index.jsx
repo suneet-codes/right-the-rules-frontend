@@ -14,10 +14,7 @@ const Layout = ({ children, categories }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.arrayOf([PropTypes.element]),
-  ]),
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
   categories: PropTypes.array,
 }
 
