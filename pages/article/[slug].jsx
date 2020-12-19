@@ -25,6 +25,7 @@ const Article = ({ article, categories }) => {
         data-src={imageUrl}
         data-srcset={imageUrl}
         data-uk-img
+        style={{ gridColumn: "2 / span 6 " }}
       >
         <h1>{article.title}</h1>
       </div>

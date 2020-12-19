@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/react": "^11.1.2",
+    "@emotion/styled": "^11.0.0",
     "moment": "^2.29.1",
     "next": "10.0.3",
     "prop-types": "^15.7.2",
