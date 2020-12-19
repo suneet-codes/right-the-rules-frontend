@@ -1,11 +1,12 @@
 import App from "next/app"
 import Head from "next/head"
-import "../assets/css/style.css"
+import { Global, ThemeProvider } from "@emotion/react"
+import { ColorModeProvider } from "../hooks/useColorMode"
+import { theme, globalStyles } from "../styles"
 import { createContext } from "react"
 import { getStrapiMedia } from "../lib/media"
 import { fetchAPI } from "../lib/api"
 import PropTypes from "prop-types"
-// import "../styles/globals.css"
 
 /** Store Strapi Global object in context */
 export const GlobalContext = createContext({})
@@ -17,20 +18,21 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       <Head>
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Staatliches"
         />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/css/uikit.min.css"
-        />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js" />
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.js" />
       </Head>
       <GlobalContext.Provider value={global}>
-        <Component {...pageProps} />
+        <ColorModeProvider>
+          <ThemeProvider theme={theme}>
+            <Global styles={globalStyles} />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </ColorModeProvider>
       </GlobalContext.Provider>
     </>
   )
@@ -54,9 +56,9 @@ MyApp.getInitialProps = async (ctx) => {
   return { ...appProps, pageProps: { global } }
 }
 
-// MyApp.propTypes = {
-//   Component: PropTypes.func.isRequired,
-//   pageProps: PropTypes.object.isRequired,
-// }
+MyApp.propTypes = {
+  Component: PropTypes.func.isRequired,
+  pageProps: PropTypes.object.isRequired,
+}
 
 export default MyApp
