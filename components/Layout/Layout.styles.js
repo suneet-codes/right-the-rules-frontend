@@ -1,8 +1,9 @@
 import styled from "@emotion/styled"
 
 export const LayoutWrapper = styled.div`
+  position: relative;
   display: grid;
-  grid-template-columns: auto repeat(6, 1fr) auto;
+  grid-template-columns: minmax(auto 1rem) repeat(6, 1fr) minmax(auto 1rem);
   grid-gap: 0 0.5rem;
   grid-template-rows: auto auto 8rem;
   font-family: ${(props) => props.theme.fonts.main};

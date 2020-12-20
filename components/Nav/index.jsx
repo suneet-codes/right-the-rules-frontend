@@ -1,15 +1,24 @@
 import Link from "next/link"
-import { NavWrapper, NavLinks } from "./Nav.styles"
+import { Button, H5, Hamburger, UL } from "../../elements"
+import { NavWrapper } from "./Nav.styles"
+import { useNavDrawer } from "../../hooks/useNavDrawer"
 
 const Nav = () => {
+  const { value, toggle } = useNavDrawer()
   return (
     <NavWrapper>
       <div className="logo">
         <Link href="/">
-          <a>Right the Rules</a>
+          <a>
+            <H5 bold>Right the Rules</H5>
+          </a>
         </Link>
       </div>
-      <NavLinks className="navLinks">
+      <UL
+        className="navLinks"
+        alignItems="center"
+        justifyContent="space between"
+      >
         <li>
           <Link href="/our-mission">
             <a>our mission</a>
@@ -26,12 +35,14 @@ const Nav = () => {
           </Link>
         </li>
         <li>
-          <Link href="/contact">
-            <a>contact</a>
-          </Link>
+          <Button href="/contact">contact</Button>
         </li>
-      </NavLinks>
-      <div className="hamburger">HBG</div>
+      </UL>
+      <div className="hamburger">
+        <button onClick={toggle}>
+          <Hamburger />
+        </button>
+      </div>
     </NavWrapper>
   )
 }

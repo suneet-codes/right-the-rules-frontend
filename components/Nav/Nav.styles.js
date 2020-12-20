@@ -6,12 +6,10 @@ export const NavWrapper = styled.nav`
   grid-row: 1 / 2;
   width: 100%;
   display: flex;
+  justify-content: center;
 
   .logo {
     padding: 1rem 0rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100%;
   }
 
@@ -27,6 +25,10 @@ export const NavWrapper = styled.nav`
 
   .navLinks {
     display: none;
+  }
+  button {
+    all: unset;
+    cursor: pointer;
   }
 
   @media ${(props) => props.theme.breakpoints.tablet} {
@@ -57,18 +59,5 @@ export const NavWrapper = styled.nav`
     .navLinks li {
       padding-right: 2rem;
     }
-  }
-`
-
-export const NavLinks = styled.ul`
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  li:last-child {
-    padding-right: 0rem;
   }
 `
