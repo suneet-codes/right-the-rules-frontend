@@ -10,7 +10,7 @@ const theme = {
     main: "Noto Sans, sans-serif",
   },
   breakpoints: {
-    tablet: `only screen and (min-width: 32rem)`,
+    tablet: `only screen and (min-width: 36rem)`,
     desktop: `only screen and (min-width: 62rem)`,
   },
   light: {
@@ -18,6 +18,7 @@ const theme = {
       primary: pewterBlue,
       secondary: dark2,
       textPrimary: dark1,
+      link: dark1,
       textSecondary: lightCyan,
     },
   },
@@ -27,6 +28,7 @@ const theme = {
       secondary: pewterBlue,
       secondaryLight: "#E0FBFC",
       textPrimary: lightCyan,
+      link: lightCyan,
       textSecondary: dark1,
     },
   },
