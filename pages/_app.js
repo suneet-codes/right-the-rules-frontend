@@ -2,10 +2,12 @@ import App from "next/app"
 import Head from "next/head"
 import { Global, ThemeProvider } from "@emotion/react"
 import { ColorModeProvider } from "../hooks/useColorMode"
+import { NavDrawerProvider } from "../hooks/useNavDrawer"
 import { theme, globalStyles } from "../styles"
 import { createContext } from "react"
 import { getStrapiMedia } from "../lib/media"
 import { fetchAPI } from "../lib/api"
+import { NavDrawer } from "../components"
 import PropTypes from "prop-types"
 
 /** Store Strapi Global object in context */
@@ -27,12 +29,15 @@ const MyApp = ({ Component, pageProps }) => {
         />
       </Head>
       <GlobalContext.Provider value={global}>
-        <ColorModeProvider>
-          <ThemeProvider theme={theme}>
-            <Global styles={globalStyles} />
-            <Component {...pageProps} />
-          </ThemeProvider>
-        </ColorModeProvider>
+        <NavDrawerProvider>
+          <ColorModeProvider>
+            <ThemeProvider theme={theme}>
+              <Global styles={globalStyles} />
+              <NavDrawer />
+              <Component {...pageProps} />
+            </ThemeProvider>
+          </ColorModeProvider>
+        </NavDrawerProvider>
       </GlobalContext.Provider>
     </>
   )
