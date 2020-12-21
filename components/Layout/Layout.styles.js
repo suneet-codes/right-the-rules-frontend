@@ -1,11 +1,12 @@
 import styled from "@emotion/styled"
 
 export const LayoutWrapper = styled.div`
+  min-height: 100vh;
   position: relative;
   display: grid;
   grid-template-columns: minmax(auto 1rem) repeat(6, 1fr) minmax(auto 1rem);
   grid-gap: 0 0.5rem;
-  grid-template-rows: auto auto 8rem;
+  grid-template-rows: 8rem auto 8rem;
   font-family: ${(props) => props.theme.fonts.main};
   background-color: ${(props) => props.theme[props.colorMode].colors.primary};
   color: ${(props) => props.theme[props.colorMode].colors.textPrimary};

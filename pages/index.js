@@ -1,17 +1,23 @@
 import PropTypes from "prop-types"
-import { Articles, Layout, Seo } from "../components"
+import { Articles, Layout, Seo, Page, Section } from "../components"
 import { fetchAPI } from "../lib/api"
 
 const Home = ({ articles, categories, homepage }) => {
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.seo} />
-      <div style={{ gridColumn: "2 / span 6" }}>
-        <div className="uk-container uk-container-large">
-          <h1>Home</h1>
+      <Page>
+        <Section
+          title={homepage.hero.title}
+          tagline={homepage.hero.Headline}
+          buttonLabel="about us"
+          buttonLink="/our-mission"
+          outline
+          height="70vh"
+        >
           {/* <Articles articles={articles} /> */}
-        </div>
-      </div>
+        </Section>
+      </Page>
     </Layout>
   )
 }
@@ -24,7 +30,10 @@ export const getStaticProps = async () => {
     fetchAPI("/homepage"),
   ])
 
-  return { props: { articles, categories, homepage }, revalidate: 1 }
+  return {
+    props: { articles, categories, homepage },
+    revalidate: 1,
+  }
 }
 
 Home.propTypes = {
