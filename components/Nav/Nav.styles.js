@@ -34,6 +34,7 @@ export const NavWrapper = styled.nav`
   @media ${(props) => props.theme.breakpoints.tablet} {
     & {
       justify-content: space-between;
+      align-items: center;
     }
     .navLinks {
       display: flex;
@@ -45,8 +46,11 @@ export const NavWrapper = styled.nav`
       padding-right: 0rem;
     }
     .logo {
-      padding: 3rem 0rem;
+      /* padding: 3rem 0rem; */
+      display: flex;
+      height: 8rem;
       justify-content: flex-start;
+      align-items: center;
     }
     .hamburger {
       display: none;

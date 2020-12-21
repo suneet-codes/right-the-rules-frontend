@@ -14,7 +14,7 @@ const Button = ({ children, href, outline }) => {
 }
 
 Button.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
+  children: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
   outline: PropTypes.bool,
 }

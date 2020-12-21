@@ -1,6 +1,7 @@
 import styled from "@emotion/styled"
 
 export const ButtonWrapper = styled.a`
+  width: fit-content;
   padding: 0.5rem 1.5rem;
   background-color: ${(props) =>
     props.outline ? "transparent" : props.theme[props.colorMode].colors.link};
