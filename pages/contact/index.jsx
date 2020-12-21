@@ -1,12 +1,34 @@
-import { Page, Layout } from "../../components"
-const Contact = () => {
+import PropTypes from "prop-types"
+import { fetchAPI } from "../../lib"
+import { Page, Layout, Section } from "../../components"
+const Contact = ({ contact }) => {
   return (
     <Layout>
       <Page>
-        <h1>This is the Contact page</h1>
+        <Section
+          title={contact.hero.title}
+          tagline={contact.hero.Headline}
+          buttonLabel="home"
+          buttonLink="/"
+          outline
+          height="70vh"
+        ></Section>
       </Page>
     </Layout>
   )
+}
+
+Contact.propTypes = {
+  contact: PropTypes.object.isRequired,
+}
+
+export const getStaticProps = async () => {
+  const contact = await fetchAPI("/contact")
+
+  return {
+    props: { contact },
+    revalidate: 1,
+  }
 }
 
 export default Contact
