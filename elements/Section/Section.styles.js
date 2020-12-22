@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 
 export const SectionWrapper = styled.section`
   min-height: fit-content;
-  max-height: 32rem;
+  width: 100%;
   grid-column: 1 / span 6;
   /* background: lavender; */
   display: flex;
@@ -25,6 +25,7 @@ export const SectionWrapper = styled.section`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    height: 32rem;
     .textArea {
       padding-top: 0rem;
       padding-bottom: 0rem;
