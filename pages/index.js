@@ -1,24 +1,26 @@
 import PropTypes from "prop-types"
-import { Articles, Layout, Seo, Page, Section } from "../components"
+import {
+  Articles,
+  Layout,
+  Seo,
+  TitleSubTitleButton,
+  Image,
+} from "../components"
+import { Main, SubGrid, Section } from "../elements"
 import { fetchAPI } from "../lib/api"
 
 const Home = ({ articles, categories, homepage }) => {
   return (
-    <Layout categories={categories}>
+    <>
       <Seo seo={homepage.seo} />
-      <Page>
-        <Section
-          title={homepage.hero.title}
-          tagline={homepage.hero.Headline}
-          buttonLabel="about us"
-          buttonLink="/our-mission"
-          outline
-          height="70vh"
-        >
-          {/* <Articles articles={articles} /> */}
+      <Main>
+        <Section textPosition="left">
+          <TitleSubTitleButton data={homepage} className="textArea" outline />
+          <Image image={homepage.image} />
         </Section>
-      </Page>
-    </Layout>
+        {/* <Articles articles={articles} /> */}
+      </Main>
+    </>
   )
 }
 
@@ -37,9 +39,9 @@ export const getStaticProps = async () => {
 }
 
 Home.propTypes = {
-  articles: PropTypes.array,
-  categories: PropTypes.array,
-  homepage: PropTypes.object,
+  articles: PropTypes.array.isRequired,
+  categories: PropTypes.array.isRequired,
+  homepage: PropTypes.object.isRequired,
 }
 
 export default Home

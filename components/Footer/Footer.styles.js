@@ -9,6 +9,10 @@ export const FooterWrapper = styled.footer`
   justify-content: center;
   align-items: center;
 
+  @media ${(props) => props.theme.breakpoints.tablet} {
+    grid-column: 1 / span 12;
+  }
+
   @media ${(props) => props.theme.breakpoints.desktop} {
     grid-column: 1 / span 14;
   }

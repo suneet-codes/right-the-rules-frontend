@@ -23,3 +23,5 @@ Button.defaultProps = {
 }
 
 export default Button
+
+/** https://emotion.sh/docs/styled - Render Button as a tag */
