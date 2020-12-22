@@ -7,7 +7,7 @@ const OurMission = ({ ourMission }) => {
   console.log(ourMission)
   return (
     <Main>
-      <Section>
+      <Section textPosition="right">
         <TitleSubTitleButton data={ourMission} className="textArea" outline />
       </Section>
     </Main>

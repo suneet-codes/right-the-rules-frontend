@@ -5,6 +5,7 @@ import {
   Seo,
   TitleSubTitleButton,
   Image,
+  BannerSVG,
 } from "../components"
 import { Main, SubGrid, Section } from "../elements"
 import { fetchAPI } from "../lib/api"
@@ -16,7 +17,8 @@ const Home = ({ articles, categories, homepage }) => {
       <Main>
         <Section textPosition="left">
           <TitleSubTitleButton data={homepage} className="textArea" outline />
-          <Image image={homepage.image} />
+          {/* <Image image={homepage.image} /> */}
+          <BannerSVG />
         </Section>
         {/* <Articles articles={articles} /> */}
       </Main>

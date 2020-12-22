@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import { SectionWrapper } from "./Section.styles"
+import { SubGrid } from "../../elements"
 
 const Section = ({ children, textPosition }) => {
   return <SectionWrapper textPosition={textPosition}>{children}</SectionWrapper>
