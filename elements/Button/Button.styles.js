@@ -1,10 +1,9 @@
 import styled from "@emotion/styled"
 
 export const ButtonWrapper = styled.a`
-  width: fit-content;
-  height: fit-content;
+  display: block;
   padding: 0.5rem 1.5rem;
-  background-color: ${(props) =>
+  background: ${(props) =>
     props.outline ? "transparent" : props.theme[props.colorMode].colors.link};
   border-style: ${(props) => (props.outline ? "solid" : "none")};
   border-color: ${(props) =>
@@ -22,4 +21,8 @@ export const ButtonWrapper = styled.a`
   border-radius: 0.5rem;
   border-width: ${(props) => (props.outline ? "2px" : "0px")};
   cursor: pointer;
+
+  p {
+    margin-bottom: 0;
+  }
 `

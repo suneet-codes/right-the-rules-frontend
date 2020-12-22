@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Button, H5, Hamburger, UL } from "../../elements"
+import { Button, H5, Hamburger, UL, P } from "../../elements"
 import { NavWrapper } from "./Nav.styles"
 import { useNavDrawer } from "../../hooks/useNavDrawer"
 
@@ -21,17 +21,23 @@ const Nav = () => {
       >
         <li>
           <Link href="/our-mission">
-            <a>our mission</a>
+            <a>
+              <P>our mission</P>
+            </a>
           </Link>
         </li>
         <li>
           <Link href="/about-us">
-            <a>about us</a>
+            <a>
+              <P>about us</P>
+            </a>
           </Link>
         </li>
         <li>
           <Link href="/articles">
-            <a>articles</a>
+            <a>
+              <P>articles</P>
+            </a>
           </Link>
         </li>
         <li>
