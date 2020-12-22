@@ -20,7 +20,7 @@ const Footer = () => {
           icon={faTwitterSquare}
         />
       </div>
-      <Label>
+      <Label mb>
         made by <strong>suneet.codes</strong>
       </Label>
       <ColorModeSwitch />

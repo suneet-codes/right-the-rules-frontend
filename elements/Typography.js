@@ -1,64 +1,79 @@
+/** html font-size is being set within the globalStyles.js for each media query, thus the fonts below scale with the size of screen */
+
+/** Each element below consumes theme values for most properties. Some elements below take additional props passed directly into their render:
+ *
+ * bold: (default render is normal weight, pass bold in for bold variant)
+ * mb: (margin-bottom - if this is passed, margin-bottom value is added from theme)
+ */
+
 import styled from "@emotion/styled"
 
 export const H5 = styled.h5`
-  font-family: ${(props) => props.theme.fonts.main};
   font-style: normal;
-  font-size: 1.25rem;
-  line-height: 1.5rem;
+  font-family: ${(props) => props.theme.fonts.main};
   font-weight: ${(props) => (props.bold ? 700 : 400)};
-  margin: 0;
+  font-size: ${(props) => props.theme.typography.h5.fontSize};
+  line-height: ${(props) => props.theme.typography.h5.lineHeight};
+  margin-bottom: ${(props) =>
+    props.mb ? props.theme.typography.h5.marginBottom : 0};
 `
 export const H4 = styled.h4`
-  font-family: ${(props) => props.theme.fonts.main};
   font-style: normal;
-  font-size: 1.5625rem;
-  line-height: 1.875rem;
+  font-family: ${(props) => props.theme.fonts.main};
   font-weight: ${(props) => (props.bold ? 700 : 400)};
-  margin: 0;
+  font-size: ${(props) => props.theme.typography.h4.fontSize};
+  line-height: ${(props) => props.theme.typography.h4.lineHeight};
+  margin-bottom: ${(props) =>
+    props.mb ? props.theme.typography.h4.marginBottom : 0};
 `
 
 export const H3 = styled.h3`
-  font-family: ${(props) => props.theme.fonts.main};
   font-style: normal;
-  font-size: 1.953rem;
-  line-height: 2.3125rem;
+  font-family: ${(props) => props.theme.fonts.main};
   font-weight: ${(props) => (props.bold ? 700 : 400)};
-  margin: 0;
+  font-size: ${(props) => props.theme.typography.h3.fontSize};
+  line-height: ${(props) => props.theme.typography.h3.lineHeight};
+  margin-bottom: ${(props) =>
+    props.mb ? props.theme.typography.h3.marginBottom : 0};
 `
 
 export const H2 = styled.h2`
-  font-family: ${(props) => props.theme.fonts.main};
   font-style: normal;
-  font-size: 2.4375rem;
-  line-height: 2.9375rem;
+  font-family: ${(props) => props.theme.fonts.main};
   font-weight: ${(props) => (props.bold ? 700 : 400)};
-  margin: 0;
+  font-size: ${(props) => props.theme.typography.h2.fontSize};
+  line-height: ${(props) => props.theme.typography.h2.lineHeight};
+  margin-bottom: ${(props) =>
+    props.mb ? props.theme.typography.h2.marginBottom : 0};
 `
 
 export const H1 = styled.h1`
-  font-family: ${(props) => props.theme.fonts.main};
   font-style: normal;
-  font-size: 3.0625rem;
-  line-height: 3.6875rem;
+  font-family: ${(props) => props.theme.fonts.main};
   font-weight: ${(props) => (props.bold ? 700 : 400)};
-  margin: 0;
+  font-size: ${(props) => props.theme.typography.h1.fontSize};
+  line-height: ${(props) => props.theme.typography.h1.lineHeight};
+  margin-bottom: ${(props) =>
+    props.mb ? props.theme.typography.h1.marginBottom : 0};
 `
 
 export const P = styled.p`
-  font-family: ${(props) => props.theme.fonts.main};
   font-style: normal;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-family: ${(props) => props.theme.fonts.main};
   font-weight: ${(props) => (props.bold ? 700 : 400)};
-  margin: 0;
+  font-size: ${(props) => props.theme.typography.p.fontSize};
+  line-height: ${(props) => props.theme.typography.p.lineHeight};
+  margin-bottom: ${(props) =>
+    props.mb ? props.theme.typography.p.marginBottom : 0};
 `
 export const Label = styled.p`
-  font-family: ${(props) => props.theme.fonts.main};
   font-style: normal;
-  font-size: 0.75rem;
-  line-height: 0.875rem;
+  font-family: ${(props) => props.theme.fonts.main};
   font-weight: ${(props) => (props.bold ? 700 : 400)};
-  margin: 0;
+  font-size: ${(props) => props.theme.typography.label.fontSize};
+  line-height: ${(props) => props.theme.typography.label.lineHeight};
+  margin-bottom: ${(props) =>
+    props.mb ? props.theme.typography.label.marginBottom : 0};
 `
 
 export const UL = styled.ul`

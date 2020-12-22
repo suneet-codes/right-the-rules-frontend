@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import { TSTBWrapper } from "./TitleSubTitleButton.styles"
-import { Button } from "../../elements"
+import { Button, H3, P } from "../../elements"
 
 const TitleSubTitleButton = ({
   data: { ButtonLabel, ButtonURL, hero },
@@ -9,8 +9,10 @@ const TitleSubTitleButton = ({
 }) => {
   return (
     <TSTBWrapper className={className}>
-      <h2>{hero.title}</h2>
-      <p>{hero.Headline}</p>
+      <H3 bold mb>
+        {hero.title}
+      </H3>
+      <P mb>{hero.Headline}</P>
       <Button href={ButtonURL} outline={outline}>
         {ButtonLabel}
       </Button>

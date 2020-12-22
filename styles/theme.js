@@ -10,7 +10,7 @@ const theme = {
     mobile: {
       margin: "minmax(1rem, auto)",
       columns: "repeat(6, 1fr)",
-      gridGap: "0 0.5rem",
+      gridGap: "0 1rem",
     },
     tablet: {
       margin: "2rem",
@@ -28,8 +28,8 @@ const theme = {
     main: "Noto Sans, sans-serif",
   },
   breakpoints: {
-    tablet: `only screen and (min-width: 40rem)`,
-    desktop: `only screen and (min-width: 62rem)`,
+    tablet: `only screen and (min-width: 640px)`,
+    desktop: `only screen and (min-width: 992px)`,
   },
   light: {
     colors: {
@@ -48,6 +48,43 @@ const theme = {
       textPrimary: lightCyan,
       link: lightCyan,
       textSecondary: dark1,
+    },
+  },
+  typography: {
+    h1: {
+      fontSize: "3.0625rem",
+      lineHeight: "3.6875rem",
+      marginBottom: "1rem",
+    },
+    h2: {
+      fontSize: "2.4375rem",
+      lineHeight: "2.9375rem",
+      marginBottom: "1rem",
+    },
+    h3: {
+      fontSize: "1.953rem",
+      lineHeight: "2.3125rem",
+      marginBottom: "1rem",
+    },
+    h4: {
+      fontSize: "1.5625rem",
+      lineHeight: "1.875rem",
+      marginBottom: "1rem",
+    },
+    h5: {
+      fontSize: "1.25rem",
+      lineHeight: "1.5rem",
+      marginBottom: "1rem",
+    },
+    p: {
+      fontSize: "1rem",
+      lineHeight: "1.5rem",
+      marginBottom: "1rem",
+    },
+    label: {
+      fontSize: "0.75rem",
+      lineHeight: "0.875rem",
+      marginBottom: "1rem",
     },
   },
 }
