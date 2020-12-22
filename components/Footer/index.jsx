@@ -1,10 +1,12 @@
 import PropTypes from "prop-types"
+import { useColorMode } from "../../hooks/useColorMode"
 import { FooterWrapper } from "./Footer.styles"
 import { ColorModeSwitch } from "../../components"
 
-const Footer = ({ colorMode }) => {
+const Footer = () => {
+  const { value } = useColorMode()
   return (
-    <FooterWrapper colorMode={colorMode}>
+    <FooterWrapper colorMode={value}>
       This is the Footer <ColorModeSwitch />
     </FooterWrapper>
   )

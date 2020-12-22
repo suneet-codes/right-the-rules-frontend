@@ -1,20 +1,15 @@
 import PropTypes from "prop-types"
-import { Articles, Layout, Seo, Page, Section } from "../../components"
+import { Articles, Seo, TitleSubTitleButton } from "../../components"
+import { Main, Section } from "../../elements"
 import { fetchAPI } from "../../lib"
 
 const ArticlesPage = () => {
   return (
-    <Layout>
-      <Page>
-        <Section
-          title="Article Page"
-          buttonLabel="button text"
-          buttonLink="/"
-          outline
-          height="70vh"
-        ></Section>
-      </Page>
-    </Layout>
+    <Main>
+      <Section>
+        <h1>Articles</h1>
+      </Section>
+    </Main>
   )
 }
 
