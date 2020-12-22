@@ -6,8 +6,16 @@ export const FooterWrapper = styled.footer`
   background-color: ${(props) => props.theme[props.colorMode].colors.secondary};
   color: ${(props) => props.theme[props.colorMode].colors.textSecondary};
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .social-icons-container {
+    padding-bottom: 0.25rem;
+    a {
+      padding: 0.25rem;
+    }
+  }
 
   @media ${(props) => props.theme.breakpoints.tablet} {
     grid-column: 1 / span 12;
