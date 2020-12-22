@@ -2,13 +2,13 @@ import styled from "@emotion/styled"
 
 export const SectionWrapper = styled.section`
   grid-column: 2 / span 4;
-  /* background-color: lightpink; */
-  height: ${(props) => props.height};
+  /* background-color: lightpink;
+  height: ${(props) => props.height}; */
   display: flex;
   .textArea {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    /* width: 100%; */
     /* background-color: lightgreen; */
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@ export const SectionWrapper = styled.section`
   }
 
   @media ${(props) => props.theme.breakpoints.tablet} {
-    grid-column: 1 / span 6;
+    grid-column: 2 / span 6;
     .textArea {
       width: 50%;
       align-items: flex-start;

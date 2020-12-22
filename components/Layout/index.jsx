@@ -18,4 +18,8 @@ Layout.propTypes = {
   categories: PropTypes.array,
 }
 
+Layout.defaultProps = {
+  categories: [],
+}
+
 export default Layout

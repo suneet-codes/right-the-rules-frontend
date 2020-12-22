@@ -1,21 +1,16 @@
 import PropTypes from "prop-types"
 import { fetchAPI } from "../../lib"
+import { TitleSubTitleButton } from "../../components"
+import { Main, Section } from "../../elements"
 
-import { Page, Layout, Section } from "../../components"
 const OurMission = ({ ourMission }) => {
+  console.log(ourMission)
   return (
-    <Layout>
-      <Page>
-        <Section
-          title={ourMission.hero.title}
-          tagline={ourMission.hero.Headline}
-          buttonLabel="contact"
-          buttonLink="/contact"
-          outline
-          height="70vh"
-        ></Section>
-      </Page>
-    </Layout>
+    <Main>
+      <Section>
+        <TitleSubTitleButton data={ourMission} className="textArea" outline />
+      </Section>
+    </Main>
   )
 }
 
