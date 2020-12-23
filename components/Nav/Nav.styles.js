@@ -2,25 +2,28 @@ import styled from "@emotion/styled"
 
 export const NavWrapper = styled.nav`
   position: relative;
-  grid-column: 2 / span 6;
+  grid-column: 2 / span 8;
   grid-row: 1 / 2;
-  /* width: 100%; */
+  height: 100%;
   display: flex;
   justify-content: center;
 
   .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 1rem 0rem;
-    height: 100%;
   }
 
   .hamburger {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 3.5rem;
     position: absolute;
     top: 0;
     right: 0;
+    height: 8rem;
   }
 
   .navLinks {
@@ -42,17 +45,10 @@ export const NavWrapper = styled.nav`
       display: flex;
     }
     .navLinks li {
-      padding-right: 1rem;
+      padding-right: 2rem;
     }
     .navLinks li:last-child {
       padding-right: 0rem;
-    }
-    .logo {
-      /* padding: 3rem 0rem; */
-      display: flex;
-      height: 8rem;
-      justify-content: flex-start;
-      align-items: center;
     }
     .hamburger {
       display: none;
@@ -61,9 +57,5 @@ export const NavWrapper = styled.nav`
 
   @media ${(props) => props.theme.breakpoints.desktop} {
     grid-column: 2 / span 12;
-
-    .navLinks li {
-      padding-right: 2rem;
-    }
   }
 `

@@ -5,7 +5,7 @@ import { Main, Section } from "../../elements"
 const AboutUs = ({ aboutUs }) => {
   return (
     <Main>
-      <Section>
+      <Section size="mainstage">
         <TitleSubTitleButton data={aboutUs} className="textArea" outline />
       </Section>
     </Main>

@@ -7,4 +7,7 @@ export const TSTBWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  a {
+    margin-top: 2rem;
+  }
 `
