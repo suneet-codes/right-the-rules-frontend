@@ -5,7 +5,7 @@ import { Main, Section } from "../../elements"
 const Contact = ({ contact }) => {
   return (
     <Main>
-      <Section textPosition="right">
+      <Section textPosition="right" size="mainstage">
         <TitleSubTitleButton data={contact} className="textArea" outline />
       </Section>
     </Main>
