@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 
 export const SubGridWrapper = styled.div`
-  grid-column: 2 / span 6;
+  grid-column: 2 / span 8;
   /* display: grid;
   grid-template-columns: ${(props) => props.theme.grid.mobile.columns};
   grid-gap: ${(props) => props.theme.grid.mobile.gridGap}; */
@@ -17,4 +17,5 @@ export const SubGridWrapper = styled.div`
     /* grid-template-columns: ${(props) => props.theme.grid.desktop.columns};
     grid-gap: ${(props) => props.theme.grid.desktop.gridGap};
   } */
+  }
 `

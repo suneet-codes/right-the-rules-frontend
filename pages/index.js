@@ -15,10 +15,10 @@ const Home = ({ articles, categories, homepage }) => {
     <>
       <Seo seo={homepage.seo} />
       <Main>
-        <Section textPosition="left">
+        <Section textPosition="left" size="mainstage">
           <TitleSubTitleButton data={homepage} className="textArea" outline />
           {/* <Image image={homepage.image} /> */}
-          <BannerSVG />
+          <BannerSVG name="homepage" />
         </Section>
         {/* <Articles articles={articles} /> */}
       </Main>

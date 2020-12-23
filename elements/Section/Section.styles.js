@@ -9,30 +9,75 @@ export const SectionWrapper = styled.section`
         return "500px"
       case "large":
         return "1000px"
+      case "mainstage":
+        return "calc(100vh - 8rem)"
       default:
         return "500px"
     }
   }};
-  grid-column: 2 / span 12;
-  /* background-color: lightpink; */
-  display: grid;
-  grid-template-columns: calc(50% - 1.5rem) calc(50% - 1.5rem);
-  grid-column-gap: 3rem;
-  grid-template-areas: "left right";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .textArea {
-    grid-area: ${(props) => (props.textPosition === "left" ? "left" : "right")};
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    align-self: center;
-    text-align: left;
+    order: 2;
+    width: 100%;
   }
 
   svg {
-    align-self: center;
+    padding: 2rem;
+    order: 1;
+    width: 90%;
+    height: fit-content;
+  }
+  /* display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto 100%;
+  grid-row-gap: 1rem;
+  grid-template-areas:
+    "top"
+    "bottom"; 
+     */
+  /* .textArea {
+    padding: 0 1rem;
+    align-self: start;
+    grid-area: bottom;
     width: 100%;
-    grid-area: ${(props) => (props.textPosition === "left" ? "right" : "left")};
+  } */
+
+  /* svg {
+    padding: 0 1rem;
+    grid-area: top;
+    width: 100%;
+    align-self: end;
+  } */
+
+  @media ${(props) => props.theme.breakpoints.tablet} {
+    display: grid;
+    grid-template-columns: calc(50% - 1.5rem) calc(50% - 1.5rem);
+    grid-column-gap: 3rem;
+    grid-template-areas:
+      "left right"
+      "left right";
+
+    .textArea {
+      grid-area: ${(props) =>
+        props.textPosition === "left" ? "left" : "right"};
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      align-self: center;
+      text-align: left;
+    }
+
+    svg {
+      align-self: center;
+      width: 100%;
+      grid-area: ${(props) =>
+        props.textPosition === "left" ? "right" : "left"};
+    }
+  }
+  @media ${(props) => props.theme.breakpoints.desktop} {
   }
 `
 

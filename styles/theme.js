@@ -1,15 +1,18 @@
 /** Add named color values */
-const dark1 = "#00161F"
-const dark2 = "#112730"
-const dark3 = "#324751"
-const pewterBlue = "#9DB4C0"
-const lightCyan = "#E0FBFC"
+export const dark1 = "#00161F"
+export const dark2 = "#112730"
+export const dark3 = "#324751"
+export const pewterBlue = "#9DB4C0"
+export const lightCyan = "#E0FBFC"
+export const powderBlue = "#C2DFE3"
+export const pink2 = "#C0AABD"
+export const pink3 = "#824F65"
 
 const theme = {
   grid: {
     mobile: {
       margin: "minmax(1rem, auto)",
-      columns: "repeat(6, 1fr)",
+      columns: "repeat(8, 1fr)",
       gridGap: "0 1rem",
     },
     tablet: {
