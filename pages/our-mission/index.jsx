@@ -1,15 +1,19 @@
 import PropTypes from "prop-types"
 import { fetchAPI } from "../../lib"
-import { TitleSubTitleButton, BannerSVG } from "../../components"
-import { Main, Section } from "../../elements"
+import { TextByImage } from "../../components"
+import { Main } from "../../elements"
 
-const OurMission = ({ ourMission }) => {
+const OurMission = ({ ourMission: { hero } }) => {
+  console.log(hero)
   return (
     <Main>
-      <Section textPosition="right" size="mainstage">
-        <BannerSVG name="ourMission" />
-        <TitleSubTitleButton data={ourMission} className="textArea" outline />
-      </Section>
+      <TextByImage
+        textPosition={hero.TextPosition}
+        size="mainstage"
+        textData={hero}
+        imageName="ourMission"
+        colorType="primary"
+      />
     </Main>
   )
 }
