@@ -2,11 +2,10 @@ import styled from "@emotion/styled"
 
 export const GridWrapper = styled.div`
   display: grid;
-  min-height: 100vh;
+  min-height: ${(props) => (props.main ? "100vh" : "0")};
   position: relative;
   font-family: ${(props) => props.theme.fonts.main};
-  background-color: ${(props) => props.theme[props.colorMode].colors.primary};
-  color: ${(props) => props.theme[props.colorMode].colors.textPrimary};
+
   grid-template-columns: ${(props) => {
     const mobileCols =
       props.theme.grid.mobile.margin +
@@ -17,7 +16,9 @@ export const GridWrapper = styled.div`
     return mobileCols
   }};
   grid-gap: ${(props) => props.theme.grid.mobile.gridGap};
-  grid-template-rows: ${(props) => props.theme.grid.rows};
+  grid-template-rows: ${(props) =>
+    props.main ? props.theme.grid.rows : "auto"};
+  /* grid-template-rows: ${(props) => props.theme.grid.rows}; */
 
   @media ${(props) => props.theme.breakpoints.tablet} {
     grid-template-columns: ${(props) => {

@@ -4,24 +4,36 @@ import {
   Layout,
   Seo,
   TitleSubTitleButton,
-  Image,
   BannerSVG,
+  BlogPreview,
+  TextByImage,
 } from "../components"
-import { Main, SubGrid, Section } from "../elements"
 import { fetchAPI } from "../lib/api"
 
-const Home = ({ articles, categories, homepage }) => {
+const Home = ({
+  articles,
+  categories,
+  homepage: { seo, hero, ourMission },
+}) => {
   return (
     <>
-      <Seo seo={homepage.seo} />
-      <Main>
-        <Section textPosition="left" size="mainstage">
-          <TitleSubTitleButton data={homepage} className="textArea" outline />
-          {/* <Image image={homepage.image} /> */}
-          <BannerSVG name="homepage" />
-        </Section>
-        {/* <Articles articles={articles} /> */}
-      </Main>
+      <Seo seo={seo} />
+      <TextByImage
+        textPosition={hero.TextPosition}
+        textData={hero}
+        size="mainstage"
+        colorType="primary"
+        imageName="homePage"
+      />
+      <TextByImage
+        textPosition={ourMission.TextPosition}
+        textData={ourMission}
+        size="medium"
+        colorType="secondary"
+        imageName="astronaut"
+      />
+      <BlogPreview articles={articles} />
+      {/* <Articles articles={articles} /> */}
     </>
   )
 }
@@ -29,7 +41,7 @@ const Home = ({ articles, categories, homepage }) => {
 export const getStaticProps = async () => {
   /** Run API calls in parallel */
   const [articles, categories, homepage] = await Promise.all([
-    fetchAPI("/articles?status=published"),
+    fetchAPI("/articles?status=published&_limit=3"),
     fetchAPI("/categories"),
     fetchAPI("/homepage"),
   ])

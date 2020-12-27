@@ -1,12 +1,15 @@
 /** Dynamic page for rendering individual articles at the `/article` path */
-
+import PropTypes from "prop-types"
 import ReactMarkdown from "react-markdown"
 import Moment from "react-moment"
 import { fetchAPI } from "../../lib/api"
 import { getStrapiMedia } from "../../lib/media"
 import { Layout, Image, Seo } from "../../components"
+import { Main } from "../../elements"
+import { ArticleWrapper } from "./article.styles"
 
 const Article = ({ article, categories }) => {
+  console.log(article.content)
   const imageUrl = getStrapiMedia(article.image)
 
   const seo = {
@@ -17,15 +20,22 @@ const Article = ({ article, categories }) => {
   }
 
   return (
-    <Layout categories={categories}>
+    // <Layout categories={categories}>
+    <Main>
       <Seo seo={seo} />
-      <div
+      <ArticleWrapper>
+        <h1>{article.title}</h1>
+        <ReactMarkdown source={article.content} escapeHtml={false} />
+        <h1>{article.publishedAt}</h1>
+        <h1>{article.author.name}</h1>
+      </ArticleWrapper>
+      {/* <div
         id="banner"
         className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
         data-src={imageUrl}
         data-srcset={imageUrl}
         data-uk-img
-        style={{ gridColumn: "2 / span 6 " }}
+        // style={{ gridColumn: "2 / span 6 " }}
       >
         <h1>{article.title}</h1>
       </div>
@@ -56,9 +66,19 @@ const Article = ({ article, categories }) => {
             </div>
           </div>
         </div>
-      </div>
-    </Layout>
+      </div> */}
+    </Main>
+    // </Layout>
   )
+}
+
+Article.propTypes = {
+  article: PropTypes.object.isRequired,
+  categories: PropTypes.array,
+}
+
+Article.defaultProps = {
+  categories: [],
 }
 
 export const getStaticPaths = async () => {

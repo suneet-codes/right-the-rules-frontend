@@ -4,7 +4,6 @@ import { TitleSubTitleButton, BannerSVG } from "../../components"
 import { Main, Section } from "../../elements"
 
 const OurMission = ({ ourMission }) => {
-  console.log(ourMission)
   return (
     <Main>
       <Section textPosition="right" size="mainstage">
