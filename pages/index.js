@@ -1,13 +1,5 @@
 import PropTypes from "prop-types"
-import {
-  Articles,
-  Layout,
-  Seo,
-  TitleSubTitleButton,
-  BannerSVG,
-  BlogPreview,
-  TextByImage,
-} from "../components"
+import { Articles, Layout, Seo, BlogPreview, TextByImage } from "../components"
 import { fetchAPI } from "../lib/api"
 
 const Home = ({
@@ -32,7 +24,7 @@ const Home = ({
         colorType="secondary"
         imageName="astronaut"
       />
-      <BlogPreview articles={articles} />
+      <BlogPreview articles={articles} colorType="primary" />
       {/* <Articles articles={articles} /> */}
     </>
   )

@@ -5,7 +5,7 @@ import { H4, Label, Button } from "../../elements"
 
 import React from "react"
 
-const BlogPostCard = ({ title, publishedAt, slug }) => {
+const BlogPostCard = ({ title, publishedAt, slug, className }) => {
   console.log(publishedAt)
   const publishedDate = new Date(publishedAt).toLocaleDateString("en-GB", {
     year: "numeric",
@@ -14,7 +14,7 @@ const BlogPostCard = ({ title, publishedAt, slug }) => {
   })
   console.log(publishedDate)
   return (
-    <BlogPostCardWrapper>
+    <BlogPostCardWrapper className={className}>
       <div>
         <Label className="label">{publishedDate}</Label>
         <H4 className="title">{title}</H4>
@@ -30,6 +30,11 @@ BlogPostCard.propTypes = {
   title: PropTypes.string.isRequired,
   publishedAt: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
+  className: PropTypes.string,
+}
+
+BlogPostCard.defaultProps = {
+  className: "",
 }
 
 export default BlogPostCard
