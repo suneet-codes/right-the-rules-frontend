@@ -2,8 +2,6 @@ import styled from "@emotion/styled"
 import { Grid } from "../../elements"
 
 export const TextByImageWrapper = styled(Grid)`
-  /* background-color: ${(props) =>
-    props.theme[props.colorMode].colors.primary}; */
   background-color: ${(props) => {
     switch (props.colorType) {
       case "primary":
