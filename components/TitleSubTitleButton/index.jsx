@@ -3,16 +3,16 @@ import { TSTBWrapper } from "./TitleSubTitleButton.styles"
 import { Button, H3, P } from "../../elements"
 
 const TitleSubTitleButton = ({
-  data: { ButtonLabel, ButtonURL, hero },
+  data: { ButtonLabel, ButtonURL, title, Headline },
   className,
   outline,
 }) => {
   return (
     <TSTBWrapper className={className}>
       <H3 bold mb>
-        {hero.title}
+        {title}
       </H3>
-      <P mb>{hero.Headline}</P>
+      <P mb>{Headline}</P>
       <Button href={ButtonURL} outline={outline}>
         {ButtonLabel}
       </Button>

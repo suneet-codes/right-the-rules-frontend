@@ -9,4 +9,5 @@ export {
   powderBlue,
   pink2,
   pink3,
+  colors,
 } from "./theme"
