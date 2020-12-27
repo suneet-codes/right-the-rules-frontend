@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { Grid } from "../../elements"
 
-const paddingTop = "3rem"
+const paddingTop = "4rem"
 
 export const BlogPreviewWrapper = styled(Grid)`
   /* height: 500px; */
