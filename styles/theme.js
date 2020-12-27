@@ -1,12 +1,27 @@
 /** Add named color values */
 export const dark1 = "#00161F"
 export const dark2 = "#112730"
+export const dark2Light = "#17303A"
 export const dark3 = "#324751"
 export const pewterBlue = "#9DB4C0"
+export const pewterBlueLight = "#B1C3CD"
 export const lightCyan = "#E0FBFC"
 export const powderBlue = "#C2DFE3"
 export const pink2 = "#C0AABD"
 export const pink3 = "#824F65"
+
+export const colors = {
+  dark1,
+  dark2,
+  dark2Light,
+  dark3,
+  pewterBlue,
+  pewterBlueLight,
+  lightCyan,
+  powderBlue,
+  pink2,
+  pink3,
+}
 
 const theme = {
   grid: {
@@ -37,6 +52,7 @@ const theme = {
   light: {
     colors: {
       primary: pewterBlue,
+      primaryLight: pewterBlueLight,
       secondary: dark2,
       textPrimary: dark1,
       link: dark1,
@@ -46,6 +62,7 @@ const theme = {
   dark: {
     colors: {
       primary: dark2,
+      primaryLight: dark2Light,
       secondary: pewterBlue,
       secondaryLight: "#E0FBFC",
       textPrimary: lightCyan,

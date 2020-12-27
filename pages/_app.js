@@ -8,7 +8,7 @@ import { createContext } from "react"
 import { getStrapiMedia } from "../lib/media"
 import { fetchAPI } from "../lib/api"
 import { NavDrawer, Nav, Footer } from "../components"
-import { Grid } from "../elements"
+import { Grid, Main } from "../elements"
 import PropTypes from "prop-types"
 
 /** Store Strapi Global object in context */
@@ -34,10 +34,12 @@ const MyApp = ({ Component, pageProps }) => {
           <ColorModeProvider>
             <ThemeProvider theme={theme}>
               <Global styles={globalStyles} />
-              <Grid>
+              <Grid main={true}>
                 {/* <NavDrawer /> */}
                 <Nav />
-                <Component {...pageProps} />
+                <Main>
+                  <Component {...pageProps} />
+                </Main>
                 <Footer />
               </Grid>
             </ThemeProvider>

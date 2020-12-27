@@ -8,6 +8,6 @@ export const TSTBWrapper = styled.div`
   justify-content: center;
   align-items: center;
   a {
-    margin-top: 2rem;
+    margin: 2rem 0;
   }
 `

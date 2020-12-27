@@ -1,11 +1,12 @@
 import PropTypes from "prop-types"
 import { fetchAPI } from "../../lib"
-import { TitleSubTitleButton } from "../../components"
+import { TitleSubTitleButton, BannerSVG } from "../../components"
 import { Main, Section } from "../../elements"
 const AboutUs = ({ aboutUs }) => {
   return (
     <Main>
       <Section size="mainstage">
+        <BannerSVG name="aboutUs" />
         <TitleSubTitleButton data={aboutUs} className="textArea" outline />
       </Section>
     </Main>
