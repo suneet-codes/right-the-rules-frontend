@@ -15,8 +15,9 @@ export const TextByImageWrapper = styled(Grid)`
   color: ${(props) => props.theme[props.colorMode].colors.textPrimary};
 
   .container {
+    padding: 5rem 0rem;
     grid-column: 2 / span 8;
-    height: ${(props) => {
+    min-height: ${(props) => {
       switch (props.size) {
         case "small":
           return "fit-content"
