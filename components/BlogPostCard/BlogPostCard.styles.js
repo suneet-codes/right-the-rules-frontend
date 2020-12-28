@@ -1,7 +1,16 @@
 import styled from "@emotion/styled"
 
 export const BlogPostCardWrapper = styled.div`
-  /* background-color: lightblue; */
+  background-color: ${(props) => {
+    switch (props.colorType) {
+      case "primary":
+        return props.theme[props.colorMode].colors.primary
+      case "secondary":
+        return props.theme[props.colorMode].colors.primaryLight
+      default:
+        return props.theme[props.colorMode].colors.primary
+    }
+  }};
   display: flex;
   flex-direction: column;
   justify-content: space-between;

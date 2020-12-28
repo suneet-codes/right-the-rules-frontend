@@ -22,13 +22,15 @@ const globalStyles = css`
   }
 
   @media only screen and (min-width: 640px) {
-    html {
+    html,
+    body {
       font-size: 14px;
     }
   }
 
   @media only screen and (min-width: 992px) {
-    html {
+    html,
+    body {
       font-size: 16px;
     }
   }

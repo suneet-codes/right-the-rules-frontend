@@ -1,7 +1,6 @@
 import PropTypes from "prop-types"
 import { fetchAPI } from "../../lib"
-import { TitleSubTitleButton, BannerSVG, TextByImage } from "../../components"
-import { Main, Section } from "../../elements"
+import { TextByImage } from "../../components"
 const Contact = ({ contact: { hero } }) => {
   return (
     <TextByImage
