@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { Grid } from "../elements"
 import { colors } from "../styles"
 
-export const ArticleWrapper = styled(Grid)`
+const ArticleWrapper = styled(Grid)`
   background-color: ${(props) => props.theme[props.colorMode].colors.primary};
   color: ${(props) => props.theme[props.colorMode].colors.textPrimary};
   min-height: calc(100vh - 16rem);
@@ -79,3 +79,4 @@ export const ArticleWrapper = styled(Grid)`
     }
   }
 `
+export default ArticleWrapper
