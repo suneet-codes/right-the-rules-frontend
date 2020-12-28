@@ -6,7 +6,7 @@ import { useColorMode } from "../../hooks/useColorMode"
 import { getStrapiMedia } from "../../lib/media"
 import { Image, Seo } from "../../components"
 import { H1, Label, Button } from "../../elements"
-import { ArticleWrapper } from "../../components/article.styles"
+import { ArticleWrapper } from "../../components/Article.styles"
 
 const Article = ({
   article,
