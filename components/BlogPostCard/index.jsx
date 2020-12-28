@@ -1,20 +1,24 @@
 import PropTypes from "prop-types"
 import Link from "next/link"
+import { useColorMode } from "../../hooks/useColorMode"
 import { BlogPostCardWrapper } from "./BlogPostCard.styles"
 import { H4, Label, Button } from "../../elements"
 
 import React from "react"
 
-const BlogPostCard = ({ title, publishedAt, slug, className }) => {
-  console.log(publishedAt)
+const BlogPostCard = ({ title, publishedAt, slug, className, colorType }) => {
+  const colorMode = useColorMode()
   const publishedDate = new Date(publishedAt).toLocaleDateString("en-GB", {
     year: "numeric",
     month: "long",
     day: "numeric",
   })
-  console.log(publishedDate)
   return (
-    <BlogPostCardWrapper className={className}>
+    <BlogPostCardWrapper
+      className={className}
+      colorType={colorType}
+      colorMode={colorMode.value}
+    >
       <div>
         <Label className="label">{publishedDate}</Label>
         <H4 className="title">{title}</H4>
@@ -31,10 +35,12 @@ BlogPostCard.propTypes = {
   publishedAt: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   className: PropTypes.string,
+  colorType: PropTypes.string,
 }
 
 BlogPostCard.defaultProps = {
   className: "",
+  colorType: "primary",
 }
 
 export default BlogPostCard

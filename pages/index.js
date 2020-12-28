@@ -7,6 +7,7 @@ const Home = ({
   categories,
   homepage: { seo, hero, ourMission },
 }) => {
+  console.log(typeof process.env.TEST_VARIABLE)
   return (
     <>
       <Seo seo={seo} />
