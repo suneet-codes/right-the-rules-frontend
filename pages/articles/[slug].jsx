@@ -1,15 +1,22 @@
 /** Dynamic page for rendering individual articles at the `/article` path */
 import PropTypes from "prop-types"
 import ReactMarkdown from "react-markdown"
-import Moment from "react-moment"
 import { fetchAPI } from "../../lib/api"
+import { useColorMode } from "../../hooks/useColorMode"
 import { getStrapiMedia } from "../../lib/media"
-import { Layout, Image, Seo } from "../../components"
-import { Main } from "../../elements"
+import { Image, Seo } from "../../components"
+import { H1, Label, Button } from "../../elements"
 import { ArticleWrapper } from "./article.styles"
 
-const Article = ({ article, categories }) => {
-  console.log(article.content)
+const Article = ({
+  article,
+  categories,
+  articleCount,
+  currentIndex,
+  nextArticle,
+  prevArticle,
+}) => {
+  const colorMode = useColorMode()
   const imageUrl = getStrapiMedia(article.image)
 
   const seo = {
@@ -19,15 +26,48 @@ const Article = ({ article, categories }) => {
     article: true,
   }
 
+  const publishedDate = new Date(article.publishedAt).toLocaleDateString(
+    "en-GB",
+    {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }
+  )
+
   return (
-    // <Layout categories={categories}>
-    <Main>
+    <>
       <Seo seo={seo} />
-      <ArticleWrapper>
-        <h1>{article.title}</h1>
-        <ReactMarkdown source={article.content} escapeHtml={false} />
-        <h1>{article.publishedAt}</h1>
-        <h1>{article.author.name}</h1>
+      <ArticleWrapper colorMode={colorMode.value}>
+        <div className="container">
+          <H1>{article.title}</H1>
+          <Label className="label">{`by ${article.author.name} on ${publishedDate}`}</Label>
+          <ReactMarkdown
+            source={article.content}
+            escapeHtml={false}
+            className="content"
+          />
+          <div className="buttonContainer">
+            {prevArticle ? (
+              <Button disabled href={`/articles/${prevArticle}`} outline>
+                previous
+              </Button>
+            ) : (
+              <Button disabled href={`/articles`} outline>
+                articles
+              </Button>
+            )}
+            {nextArticle ? (
+              <Button href={`/articles/${nextArticle}`} outline>
+                next
+              </Button>
+            ) : (
+              <Button disabled href={`/articles`} outline>
+                articles
+              </Button>
+            )}
+          </div>
+        </div>
       </ArticleWrapper>
       {/* <div
         id="banner"
@@ -67,14 +107,17 @@ const Article = ({ article, categories }) => {
           </div>
         </div>
       </div> */}
-    </Main>
-    // </Layout>
+    </>
   )
 }
 
 Article.propTypes = {
   article: PropTypes.object.isRequired,
   categories: PropTypes.array,
+  nextArticle: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+    .isRequired,
+  prevArticle: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+    .isRequired,
 }
 
 Article.defaultProps = {
@@ -85,19 +128,34 @@ export const getStaticPaths = async () => {
   const articles = await fetchAPI("/articles")
 
   return {
-    paths: articles.map((article) => ({ params: { slug: article.slug } })),
+    paths: articles.map(({ slug }) => {
+      return {
+        params: { slug },
+      }
+    }),
     fallback: false,
   }
 }
 
-export const getStaticProps = async ({ params }) => {
-  const articles = await fetchAPI(
-    `/articles?slug=${params.slug}&status=published`
-  )
+export const getStaticProps = async ({ params: { slug } }) => {
+  const [article] = await fetchAPI(`/articles?slug=${slug}&status=published`)
   const categories = await fetchAPI("/categories")
+  const articles = await fetchAPI("/articles?status=published")
+
+  const totalArticles = articles.length - 1
+  const currentIndex = articles.findIndex((article) => {
+    return article.slug === slug
+  })
 
   return {
-    props: { article: articles[0], categories },
+    props: {
+      article,
+      categories,
+      currentIndex,
+      nextArticle:
+        currentIndex < totalArticles ? articles[currentIndex + 1].slug : false,
+      prevArticle: currentIndex > 0 ? articles[currentIndex - 1].slug : false,
+    },
     revalidate: 1,
   }
 }

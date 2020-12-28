@@ -1,19 +1,16 @@
 import PropTypes from "prop-types"
 import { fetchAPI } from "../../lib"
 import { TextByImage } from "../../components"
-import { Main } from "../../elements"
 
 const AboutUs = ({ aboutUs: { hero } }) => {
   return (
-    <Main>
-      <TextByImage
-        size="mainstage"
-        textPosition={hero.TextPosition}
-        textData={hero}
-        imageName="aboutUs"
-        colorType="primary"
-      />
-    </Main>
+    <TextByImage
+      size="mainstage"
+      textPosition={hero.TextPosition}
+      textData={hero}
+      imageName="aboutUs"
+      colorType="primary"
+    />
   )
 }
 
