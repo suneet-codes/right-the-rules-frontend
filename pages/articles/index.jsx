@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 import { useColorMode } from "../../hooks/useColorMode"
 import { Articles, Seo, BlogPostCard } from "../../components"
 import { fetchAPI } from "../../lib"
-import { ArticlesPageWrapper } from "./ArticlesPage.styles"
+import { ArticlesPageWrapper } from "../../components/ArticlesPage.styles"
 
 const ArticlesPage = ({ articles, categories }) => {
   const colorMode = useColorMode()
