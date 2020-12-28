@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
-import { Grid } from "../../elements"
-import { colors } from "../../styles"
+import { Grid } from "../elements"
+import { colors } from "../styles"
 
 export const ArticleWrapper = styled(Grid)`
   background-color: ${(props) => props.theme[props.colorMode].colors.primary};
