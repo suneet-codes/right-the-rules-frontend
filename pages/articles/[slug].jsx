@@ -4,9 +4,8 @@ import ReactMarkdown from "react-markdown"
 import { fetchAPI } from "../../lib/api"
 import { useColorMode } from "../../hooks/useColorMode"
 import { getStrapiMedia } from "../../lib/media"
-import { Image, Seo } from "../../components"
+import { Image, Seo, ArticleWrapper } from "../../components"
 import { H1, Label, Button } from "../../elements"
-import { ArticleWrapper } from "../../components/Article.styles"
 
 const Article = ({
   article,

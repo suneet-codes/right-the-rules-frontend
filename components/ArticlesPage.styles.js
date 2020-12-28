@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { Grid } from "../elements"
 
-export const ArticlesPageWrapper = styled(Grid)`
+const ArticlesPageWrapper = styled(Grid)`
   background-color: ${(props) => props.theme[props.colorMode].colors.primary};
   color: ${(props) => props.theme[props.colorMode].colors.textPrimary};
   min-height: calc(100vh - 16rem);
@@ -46,3 +46,4 @@ export const ArticlesPageWrapper = styled(Grid)`
     }
   }
 `
+export default ArticlesPageWrapper
