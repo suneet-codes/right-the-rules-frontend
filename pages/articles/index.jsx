@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import styled from "@emotion/styled"
 import { useColorMode } from "../../hooks/useColorMode"
-import { Articles, Seo, BlogPostCard } from "../../components"
+import { Articles, Seo, BlogPostCard, GridLayout } from "../../components"
 import { Grid } from "../../elements"
 import { fetchAPI } from "../../lib"
 
@@ -54,22 +54,36 @@ const ArticlesPageWrapper = styled(Grid)`
 const ArticlesPage = ({ articles, categories }) => {
   const colorMode = useColorMode()
   return (
-    <ArticlesPageWrapper colorMode={colorMode.value}>
-      <div className="container">
-        {articles.map(({ id, title, publishedAt, slug }, index) => {
-          return (
-            <BlogPostCard
-              colorType={index % 2 > 0 ? "primary" : "secondary"}
-              key={`${id}-${title}`}
-              title={title}
-              publishedAt={publishedAt}
-              slug={slug}
-              className="card"
-            />
-          )
-        })}
-      </div>
-    </ArticlesPageWrapper>
+    // <ArticlesPageWrapper colorMode={colorMode.value}>
+    //   <div className="container">
+    //     {articles.map(({ id, title, publishedAt, slug }, index) => {
+    //       return (
+    //         <BlogPostCard
+    //           colorType={index % 2 > 0 ? "primary" : "secondary"}
+    //           key={`${id}-${title}`}
+    //           title={title}
+    //           publishedAt={publishedAt}
+    //           slug={slug}
+    //           className="card"
+    //         />
+    //       )
+    //     })}
+    //   </div>
+    // </ArticlesPageWrapper>
+    <GridLayout colorMode={colorMode.value}>
+      {articles.map(({ id, title, publishedAt, slug }, index) => {
+        return (
+          <BlogPostCard
+            colorType={index % 2 > 0 ? "primary" : "secondary"}
+            key={`${id}-${title}`}
+            title={title}
+            publishedAt={publishedAt}
+            slug={slug}
+            className="card"
+          />
+        )
+      })}
+    </GridLayout>
   )
 }
 

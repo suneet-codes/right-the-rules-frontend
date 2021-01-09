@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 import Link from "next/link"
 import { useColorMode } from "../../hooks/useColorMode"
 import { BlogPostCardWrapper } from "./BlogPostCard.styles"
-import { H4, Label, Button } from "../../elements"
+import { H5, Label, Button } from "../../elements"
 
 import React from "react"
 
@@ -13,6 +13,11 @@ const BlogPostCard = ({ title, publishedAt, slug, className, colorType }) => {
     month: "long",
     day: "numeric",
   })
+  const publishedDateShort = new Date(publishedAt).toLocaleDateString("en-GB", {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  })
   return (
     <BlogPostCardWrapper
       className={className}
@@ -20,8 +25,10 @@ const BlogPostCard = ({ title, publishedAt, slug, className, colorType }) => {
       colorMode={colorMode.value}
     >
       <div>
-        <Label className="label">{publishedDate}</Label>
-        <H4 className="title">{title}</H4>
+        <Label className="label">
+          <time dateTime={publishedDateShort}>{publishedDate}</time>
+        </Label>
+        <H5 className="title">{title}</H5>
       </div>
       <Button mb outline href={`/articles/${slug}`}>
         read more
