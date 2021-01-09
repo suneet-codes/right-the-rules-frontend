@@ -16,15 +16,17 @@ export const BlogPreviewWrapper = styled(Grid)`
     }
   }};
   color: ${(props) => props.theme[props.colorMode].colors.textPrimary};
-  padding-top: ${paddingTop};
+  /* padding-top: ${paddingTop}; */
 
   .container {
     grid-column: 3 / span 6;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     .card {
-      margin-bottom: ${paddingTop};
+      /* margin-bottom: ${paddingTop}; */
     }
   }
 
@@ -36,20 +38,24 @@ export const BlogPreviewWrapper = styled(Grid)`
 
   @media ${(props) => props.theme.breakpoints.desktop} {
     height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     .container {
-      padding: ${paddingTop} 0rem;
-      grid-column: 2 / span 12;
+      max-width: 1078px;
+      margin: 0 auto;
+      height: 300px;
+      padding: 0rem 3rem;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-column-gap: 2rem;
-      /* background-color: lightgreen; */
-      margin-bottom: ${paddingTop};
-      align-items: center;
+      grid-template-rows: auto;
+      /* background-color: lightblue; */
 
-      .card {
+      /* .card {
         margin-bottom: 0;
-        align-self: stretch;
-      }
+      
+      } */
     }
   }
 `
